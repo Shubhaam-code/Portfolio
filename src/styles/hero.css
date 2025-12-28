@@ -205,7 +205,7 @@
 
   /* 👇 PASSPORT-STYLE FIX */
   object-position: center 1%;   /* face upar rahe */
-  transform: scale(1.15);        /* thoda zoom */
+  transform: scale(1.10);        /* thoda zoom */
 
   border-radius: 24px;
 }
