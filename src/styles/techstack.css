@@ -1,0 +1,255 @@
+/* ============================================
+   TECH STACK SECTION - PREMIUM DESIGN
+   ============================================ */
+
+.techstack-section {
+  padding: var(--spacing-xl) 8%;
+  position: relative;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(15, 15, 25, 0.98) 50%, var(--bg-primary) 100%);
+  overflow: hidden;
+}
+
+.techstack-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.08), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 0, 85, 0.06), transparent 50%);
+  pointer-events: none;
+}
+
+.techstack-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.techstack-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.techstack-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 0 0 16px 0;
+  opacity: 1;
+}
+
+.techstack-subtitle {
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--text-secondary);
+  margin: 0;
+  opacity: 1;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid Layout */
+.techstack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Card Styles */
+.techstack-card {
+  padding: 40px 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.techstack-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 0, 85, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.techstack-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.4), rgba(255, 0, 85, 0.4));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.techstack-card:hover::before {
+  opacity: 1;
+}
+
+.techstack-card:hover::after {
+  opacity: 1;
+}
+
+.techstack-card:hover {
+  border-color: rgba(255, 107, 53, 0.4);
+  box-shadow: 0 20px 60px rgba(255, 107, 53, 0.2),
+              0 0 0 1px rgba(255, 107, 53, 0.2);
+}
+
+.card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 24px 0;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.card-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.item-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--glow-orange), var(--glow-red));
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.5);
+}
+
+.item-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.techstack-card:hover .item-text {
+  color: var(--text-primary);
+}
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .techstack-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 968px) {
+  .techstack-section {
+    padding: var(--spacing-lg) 5%;
+  }
+
+  .techstack-header {
+    margin-bottom: 60px;
+  }
+
+  .techstack-grid {
+    gap: 24px;
+  }
+
+  .techstack-card {
+    padding: 36px 28px;
+  }
+
+  .card-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .item-text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .techstack-section {
+    padding: var(--spacing-md) 5%;
+  }
+
+  .techstack-header {
+    margin-bottom: 48px;
+  }
+
+  .techstack-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .techstack-card {
+    padding: 32px 24px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card-items {
+    gap: 12px;
+  }
+
+  .item-text {
+    font-size: 15px;
+  }
+
+  /* Disable magnetic effect on mobile */
+  .techstack-card {
+    transform: none !important;
+  }
+  
+  /* Tap-friendly interaction on mobile */
+  .techstack-card:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease;
+  }
+}
+

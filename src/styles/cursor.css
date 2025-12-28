@@ -1,0 +1,79 @@
+/* ============================================
+   CUSTOM MAGNETIC CURSOR - PREMIUM DESIGN
+   ============================================ */
+
+:root {
+  --cursor-size: 32px;
+  --cursor-inner-size: 8px;
+  --cursor-ring-size: 40px;
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 769px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Custom cursor container */
+.custom-cursor {
+  position: fixed;
+  width: var(--cursor-ring-size);
+  height: var(--cursor-ring-size);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+/* Outer ring */
+.cursor-outer-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--cursor-ring-size);
+  height: var(--cursor-ring-size);
+  border: 2px solid rgba(255, 107, 53, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Inner dot */
+.cursor-inner-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--cursor-inner-size);
+  height: var(--cursor-inner-size);
+  background: linear-gradient(135deg, var(--glow-orange), var(--glow-red));
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.8);
+}
+
+/* Hover state */
+.custom-cursor.hover-interactive .cursor-outer-ring {
+  border-color: rgba(255, 107, 53, 0.8);
+  box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+}
+
+.custom-cursor.hover-interactive .cursor-inner-dot {
+  box-shadow: 0 0 20px rgba(255, 107, 53, 1);
+}
+
+/* Mobile: Hide cursor */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+}
